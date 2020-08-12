@@ -1,0 +1,145 @@
+
+// Text color overrides for Material theme
+$dark-primary-text: rgba(black, 0.87);
+$dark-secondary-text: rgba(black, 0.54);
+$dark-disabled-text: rgba(black, 0.38);
+$dark-dividers: rgba(black, 0.12);
+$dark-focused: rgba(black, 0.12);
+$light-primary-text: white;
+$light-secondary-text: rgba(white, 0.7);
+$light-disabled-text: rgba(white, 0.5);
+$light-dividers: rgba(white, 0.12);
+$light-focused: rgba(white, 0.12);
+
+
+$myapp-accent: (
+  50: #808eda,
+  100: #6c7dd5,
+  200: #586bcf,
+  300: #455ac9,
+  400: #374cbe,
+  500: #3144AA,
+  600: #2b3c96,
+  700: #263482,
+  800: #202c6f,
+  900: #1a245b,
+  A100: #94a0e0,
+  A200: #a8b1e6,
+  A400: #bbc3ec,
+  A700: #141c47,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
+$myapp-primary: (
+  50: #77530e,
+  100: #8d6311,
+  200: #a47314,
+  300: #bb8316,
+  400: #d29319,
+  500: #e7ab37,
+  600: #eab54e,
+  700: #ecbe64,
+  800: #efc87b,
+  900: #f2d192,
+  A100: #eab54e,
+  A200: #E7AB37,
+  A400: #e4a120,
+  A700: #f5dba9,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
+$myapp-success: (
+  50: #E8F6EF,
+  100: #C7E9D7,
+  200: #A1DBBC,
+  300: #7BCCA1,
+  400: #5FC18C,
+  500: #43B678,
+  600: #3DAF70,
+  700: #34A665,
+  800: #2C9E5B,
+  900: #1E8E48,
+  A100: #C9FFDC,
+  A200: #96FFBA,
+  A400: #63FF99,
+  A700: #49FF88,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
+$myapp-warn: (
+  50: #e5a5a5,
+  100: #df9191,
+  200: #d97d7d,
+  300: #d36969,
+  400: #ce5656,
+  500: #C84242,
+  600: #ba3636,
+  700: #a73030,
+  800: #932b2b,
+  900: #7f2525,
+  A100: #eab8b8,
+  A200: #f0cccc,
+  A400: #f6e0e0,
+  A700: #6b1f1f,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $light-primary-text,
+  )
+);

@@ -1,0 +1,37 @@
+$appred: #640808;
+$appgrn: #086408;
+$appblu: #080864;
+
+$app-prim: $appgrn;
+$app-scnd: $appblu;
+$app-acnt: $appred;
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
+.basic-container {
+  // padding: 30px;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+  margin: 8px;
+  display: none;
+}
+
+.transparent {
+  background-color: transparent;
+}
+
+.sticky {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+}
+
+/**  Copyright 2020 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license */
