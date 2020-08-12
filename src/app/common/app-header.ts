@@ -29,8 +29,8 @@ export enum Direction {
       state(VisibilityState.Hidden, style({
         transform: 'translateY(-64px)' // adjust this to the height of your header
       })),
-      transition(`${VisibilityState.Visible} => ${VisibilityState.Hidden}`, animate('250ms')),
-      transition(`${VisibilityState.Hidden} => ${VisibilityState.Visible}`, animate('250ms'))
+      transition(`${VisibilityState.Visible} => ${VisibilityState.Hidden}`, animate('300ms')),
+      transition(`${VisibilityState.Hidden} => ${VisibilityState.Visible}`, animate('300ms'))
     ])
   ]
 })
@@ -53,7 +53,7 @@ export class AppHeader implements AfterViewInit, OnDestroy {
       map(() => window.pageYOffset), // if you used 'window' above replace 'content.scrollTop' with 'window.pageYOffset'
       pairwise(),
       map(([y1, y2]): Direction => {
-        // console.log(y1, y2);
+        //console.log(y1, y2);
         // if (y2 < y1) {
         //   if (y2 < this.slideHeader2InAtPosition) {
         //     return Direction.Up;
@@ -67,10 +67,10 @@ export class AppHeader implements AfterViewInit, OnDestroy {
         //     return Direction.None;
         //   }
         // }
-        //return (y2 < y1 ? Direction.Up : (y2 > this.slideHeader2InAtPosition ? Direction.Down : Direction.None) );
-        return ( y2 < y1 ? Direction.Up : Direction.Down );
+        return (y2 < y1 ? Direction.Up : (y2 > this.slideHeader2InAtPosition ? Direction.Down : Direction.None) );
+        //return ( y2 < y1 ? Direction.Up : Direction.Down );
       }),
-      //distinctUntilChanged(),
+      distinctUntilChanged(),
       takeUntil(this.destroy$)
     );
 
@@ -78,14 +78,14 @@ export class AppHeader implements AfterViewInit, OnDestroy {
     scroll.subscribe(dir => {
       switch (dir) {
         case Direction.Down:
-          //console.log('scrolling down', window.pageYOffset);
-          if (window.pageYOffset < this.slideHeader2InAtPosition) {break;}
+          console.log('scrolling down', window.pageYOffset);
+          //if (window.pageYOffset < this.slideHeader2InAtPosition) {break;}
           this.isHeader1Visible = VisibilityState.Hidden;
           this.isHeader2Visible = VisibilityState.Visible;
           break;
         case Direction.Up:
-          //console.log('scrolling up', window.pageYOffset);
-          if (window.pageYOffset > this.slideHeader2InAtPosition) {break;}
+          console.log('scrolling up', window.pageYOffset);
+          //if (window.pageYOffset > this.slideHeader2InAtPosition) {break;}
           this.isHeader1Visible = VisibilityState.Visible;
           this.isHeader2Visible = VisibilityState.Hidden;
           break;
