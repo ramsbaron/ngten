@@ -38,7 +38,7 @@ export class AppHeader implements AfterViewInit, OnDestroy {
   private destroy$: Subject<boolean> = new Subject<boolean>();
   isHeader1Visible = VisibilityState.Visible;
   isHeader2Visible = VisibilityState.Hidden;
-  slideHeader2InAtPosition = 30;
+  slideHeader2InAtPosition = 50;
 
   ngOnDestroy() {
     this.destroy$.next(true);
@@ -48,29 +48,50 @@ export class AppHeader implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     // create an observable stream of scroll positions and map them to UP / DOWN directions
     const content = document.querySelector('.scrollWrapper');
-    const scroll$ = fromEvent(window, 'scroll').pipe( // if the scroll events happen on your window you could use 'window' instead of 'content' here
-      throttleTime(10),
+    const scroll = fromEvent(window, 'scroll').pipe( // if the scroll events happen on your window you could use 'window' instead of 'content' here
+      throttleTime(500),
       map(() => window.pageYOffset), // if you used 'window' above replace 'content.scrollTop' with 'window.pageYOffset'
       pairwise(),
       map(([y1, y2]): Direction => {
         // console.log(y1, y2);
-        return (y2 < y1 ? Direction.Up : (y2 > this.slideHeader2InAtPosition ? Direction.Down : Direction.None));
+        // if (y2 < y1) {
+        //   if (y2 < this.slideHeader2InAtPosition) {
+        //     return Direction.Up;
+        //   } else {
+        //     return Direction.None;
+        //   }
+        // } else {
+        //   if (y2 > this.slideHeader2InAtPosition) {
+        //     return Direction.Down;
+        //   } else {
+        //     return Direction.None;
+        //   }
+        // }
+        //return (y2 < y1 ? Direction.Up : (y2 > this.slideHeader2InAtPosition ? Direction.Down : Direction.None) );
+        return ( y2 < y1 ? Direction.Up : Direction.Down );
       }),
-      distinctUntilChanged(),
+      //distinctUntilChanged(),
       takeUntil(this.destroy$)
     );
 
     // subscribe to the UP / DOWN scroll direction stream and set the header state accordingly
-    scroll$.subscribe(dir => {
-      if (dir === Direction.Down) {
-        console.log('scrolling down', window.pageYOffset);
-        this.isHeader1Visible = VisibilityState.Hidden;
-        this.isHeader2Visible = VisibilityState.Visible;
-      } else {
-        console.log('scrolling up', window.pageYOffset);
-        this.isHeader1Visible = VisibilityState.Visible;
-        this.isHeader2Visible = VisibilityState.Hidden;
-      }
+    scroll.subscribe(dir => {
+      switch (dir) {
+        case Direction.Down:
+          //console.log('scrolling down', window.pageYOffset);
+          if (window.pageYOffset < this.slideHeader2InAtPosition) {break;}
+          this.isHeader1Visible = VisibilityState.Hidden;
+          this.isHeader2Visible = VisibilityState.Visible;
+          break;
+        case Direction.Up:
+          //console.log('scrolling up', window.pageYOffset);
+          if (window.pageYOffset > this.slideHeader2InAtPosition) {break;}
+          this.isHeader1Visible = VisibilityState.Visible;
+          this.isHeader2Visible = VisibilityState.Hidden;
+          break;
+        default:
+          console.log('Do Nothing', dir);
+      }        
     });
   }
 
