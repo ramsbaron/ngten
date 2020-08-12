@@ -1,4 +1,4 @@
-<mat-toolbar class="transparent sticky ontop">
+<mat-toolbar class="transparent sticky ontop" [@scrollAnimation]="isHeader1Visible">
   <a href="#one" mat-button>My App</a>
   <span class="example-spacer"></span>
   <a href="#two" mat-button>
@@ -18,6 +18,11 @@
   </a>
 </mat-toolbar>
 
+<mat-toolbar class="transparent sticky ontop" [@scrollAnimation]="isHeader2Visible">
+    <mat-toolbar-row>
+      <span>Another Header</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
 <!-- Copyright 2020 Google LLC. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
